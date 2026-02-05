@@ -51,12 +51,12 @@ function nextPage() {
     // 1. Show the first image immediately
     document.getElementById("successImage").src = yesImages[0];
 
-    // 2. Start the loop to change image every 2 seconds
+    // 2. Start the loop to change image every 2.5 seconds
     setInterval(function() {
         // Move to the next index, loop back to 0 if at the end
         yesIndex = (yesIndex + 1) % yesImages.length;
         document.getElementById("successImage").src = yesImages[yesIndex];
-    }, 2000); // 2000 milliseconds = 2 seconds
+    }, 2500); // 2500 milliseconds = 2.5 seconds
     
     // --- SLIDESHOW LOGIC ENDS HERE ---
 
