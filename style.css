@@ -1,0 +1,146 @@
+/* RESET & BODY */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Soft, clean gradient background (No dense hearts) */
+    background: linear-gradient(135deg, #ffe6fa 0%, #e3f2fd 100%);
+    font-family: 'Arial', sans-serif;
+    /* Allow scrolling if elements get too big */
+    overflow-x: hidden; 
+    overflow-y: auto;
+}
+
+/* GLASSMORPHISM CONTAINER */
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.6); /* More opaque for better readability */
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    max-width: 90%;
+    width: 450px;
+    position: relative; 
+    z-index: 10;
+    margin: 20px; /* Margin to ensure space on mobile */
+}
+
+.header_text {
+    color: #ff4d6d;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+}
+
+.sub-text {
+    color: #555;
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.gif_container img {
+    width: 100%;
+    max-width: 300px; 
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* BUTTON STYLES */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center; 
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#yesButton {
+    background-color: #ff4d6d;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+    z-index: 100; /* Ensures it grows ON TOP of everything */
+}
+
+#noButton {
+    background-color: white;
+    color: #ff4d6d;
+    border: 2px solid #ff4d6d;
+}
+
+/* Success Page Hidden Default */
+#success-container {
+    display: none;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: transform 0.2s;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.05);
+}
+
+/* FLOATING HEARTS ANIMATION */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 2rem;
+    animation: floatUp 6s linear infinite;
+    opacity: 0;
+}
+
+.heart:nth-child(1) { left: 10%; animation-duration: 7s; }
+.heart:nth-child(2) { left: 30%; animation-duration: 5s; animation-delay: 1s; }
+.heart:nth-child(3) { left: 50%; animation-duration: 6s; animation-delay: 3s; }
+.heart:nth-child(4) { left: 70%; animation-duration: 8s; animation-delay: 2s; }
+.heart:nth-child(5) { left: 90%; animation-duration: 5s; animation-delay: 4s; }
+.heart:nth-child(6) { left: 20%; animation-duration: 6s; animation-delay: 1.5s; }
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-110vh); opacity: 0; }
+}

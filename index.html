@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="teddy-bear.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <div id="question-container">
+            <h1 class="header_text">Will you be my Valentine?</h1>
+            <div class="gif_container">
+                <img src="beg0.gif" alt="Cute Bear" id="mainImage">
+            </div>
+            <div class="buttons">
+                <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+                <button class="btn" id="noButton" onclick="moveButton()">No</button>
+            </div>
+        </div>
+
+        <div id="success-container">
+            <h1 class="header_text">Yeayyy!! I knew you would yes! 💖</h1>
+            <div class="gif_container">
+                <img src="yes1.gif" alt="Cute Bear Kissing" id="successImage">
+            </div>
+            <p class="sub-text">You made valentine so special for me, I Love You! 🥰</p>
+            
+            <a href="https://t.me/SHINKAIIIIIIII" class="whatsapp-btn" target="_blank">
+                Text me here 💌
+            </a>
+        </div>
+    </div>
+
+    <div class="hearts-container">
+        <div class="heart">❤️</div>
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💗</div>
+        <div class="heart">❤️</div>
+        <div class="heart">💖</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
