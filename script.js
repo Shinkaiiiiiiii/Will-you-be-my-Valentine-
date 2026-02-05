@@ -28,27 +28,38 @@ const noImages = [
     "beg2.gif",
     "beg3.gif",
     "beg.gif",
-    "step2.gif" // Added the extra gif here!
+    "step2.gif"
 ];
 
-// LIST OF IMAGES FOR "YES" BUTTON (Success)
+// LIST OF IMAGES FOR "YES" BUTTON (Success Slideshow)
 const yesImages = [
     "yes1.gif",
     "yes2.gif",
     "yes3.gif",
-    "yes4.gif"
+    "yes4.gif" // I kept yes4 because you uploaded it earlier!
 ];
 
 let noCount = 0;
+let yesIndex = 0; // Track which 'Yes' image we are showing
 
 function nextPage() {
     document.getElementById("question-container").style.display = "none";
     document.getElementById("success-container").style.display = "block";
     
-    // Pick a RANDOM image from the yesImages list
-    const randomYesImage = yesImages[Math.floor(Math.random() * yesImages.length)];
-    document.getElementById("successImage").src = randomYesImage;
+    // --- SLIDESHOW LOGIC STARTS HERE ---
     
+    // 1. Show the first image immediately
+    document.getElementById("successImage").src = yesImages[0];
+
+    // 2. Start the loop to change image every 2 seconds
+    setInterval(function() {
+        // Move to the next index, loop back to 0 if at the end
+        yesIndex = (yesIndex + 1) % yesImages.length;
+        document.getElementById("successImage").src = yesImages[yesIndex];
+    }, 2000); // 2000 milliseconds = 2 seconds
+    
+    // --- SLIDESHOW LOGIC ENDS HERE ---
+
     triggerConfetti();
 }
 
@@ -66,16 +77,15 @@ function moveButton() {
     }
 
     // 2. Change Image (Cycle through the list)
-    // The % operator loops back to 0 when it reaches the end of the list
     const imageIndex = noCount % noImages.length;
     mainImage.src = noImages[imageIndex];
 
-    // 3. Grow the YES button (Slower growth rate)
+    // 3. Grow the YES button
     var currentFontSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
-    var newSize = currentFontSize * 1.2; // Changed from 1.6 to 1.2 (Less aggressive)
+    var newSize = currentFontSize * 1.2; 
     yesButton.style.fontSize = newSize + "px";
     
-    // Update padding to balance the look
+    // Update padding
     var currentPadding = parseFloat(window.getComputedStyle(yesButton).padding);
     yesButton.style.padding = (currentPadding * 1.1) + "px";
 }
